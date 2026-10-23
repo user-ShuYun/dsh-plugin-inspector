@@ -1,0 +1,33 @@
+{
+  "name": "dsh-plugin-inspector",
+  "version": "0.2.0",
+  "description": "DSH plugin: browse every installed plugin and debug its tools from a floating panel (Ctrl+Shift+P).",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src/",
+    "lib/",
+    "cordis.patch.yml",
+    "README.md",
+    "install.ps1"
+  ],
+  "engines": {
+    "node": ">=22.19"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": ["@deepseek-ai/dsh-client-runtime"]
+    }
+  },
+  "keywords": ["deepseek-harness", "dsh-plugin", "inspector", "debug"],
+  "license": "MIT"
+}
